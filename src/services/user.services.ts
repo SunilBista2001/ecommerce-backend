@@ -33,7 +33,6 @@ export const create = async (users: any) => {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             email,
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            name,
             password: hashedPassword,
         },
     })
@@ -70,7 +69,7 @@ export const update = async (user: any, id: string) => {
     try {
         await prisma.user.update({
             where: { id: Number(id) },
-            data: { email, name, password },
+            data: { email, password },
         })
     } catch (error) {
         console.log('error =>', error)
