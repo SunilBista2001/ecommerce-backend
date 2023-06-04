@@ -16,19 +16,6 @@ export const getUsers = async (
     }
 }
 
-export const addUsers = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-): Promise<any> => {
-    try {
-        const data = await UserService.create(req.body)
-        res.send(data)
-    } catch (error) {
-        next(error)
-    }
-}
-
 export const deleteUser = async (
     req: Request,
     res: Response,

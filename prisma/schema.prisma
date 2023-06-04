@@ -29,7 +29,7 @@ model ProductItem {
   price               Float
   configurations      ProductConfiguration[]
   order_lines         OrderLine[]
-  shopping_cart_items ShoppingCartItem[]
+  // shopping_cart_items ShoppingCartItem[]
   UserReview          UserReview[]
 }
 
@@ -106,21 +106,21 @@ model OrderLine {
   price           Float
 }
 
-model ShoppingCart {
-  id                  Int                @id @default(autoincrement())
-  user                User               @relation(fields: [user_id], references: [id])
-  user_id             Int
-  shopping_cart_items ShoppingCartItem[]
-}
+// model ShoppingCart {
+//   id                  Int                @id @default(autoincrement())
+//   user                User               @relation(fields: [user_id], references: [id])
+//   user_id             Int
+//   shopping_cart_items ShoppingCartItem[]
+// }
 
-model ShoppingCartItem {
-  id               Int          @id @default(autoincrement())
-  shopping_cart    ShoppingCart @relation(fields: [shopping_cart_id], references: [id])
-  shopping_cart_id Int
-  product_item     ProductItem  @relation(fields: [product_item_id], references: [id])
-  product_item_id  Int
-  quantity         Int
-}
+// model ShoppingCartItem {
+//   id               Int          @id @default(autoincrement())
+//   shopping_cart    ShoppingCart @relation(fields: [shopping_cart_id], references: [id])
+//   shopping_cart_id Int
+//   product_item     ProductItem  @relation(fields: [product_item_id], references: [id])
+//   product_item_id  Int
+//   quantity         Int
+// }
 
 model User {
   id           Int            @id @default(autoincrement())
@@ -130,7 +130,7 @@ model User {
   orders       ShopOrder[]
   addresses    UserAddress[]
   reviews      UserReview[]
-  ShoppingCart ShoppingCart[]
+  // ShoppingCart ShoppingCart[]
 }
 
 model UserAddress {
@@ -164,3 +164,4 @@ model UserReview {
   rating_value       Int
   comment            String
 }
+
