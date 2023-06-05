@@ -2,21 +2,15 @@
 import { Router } from 'express'
 import userRouter from '../routes/user.routes'
 import authRouter from '../routes/auth.routes'
-
-import {
-    authenticateToken,
-    isAdmin,
-} from '../middlewares/authentication.middleware'
+import profileRouter from '../routes/profile.routes'
 
 const router = Router()
-
-router.use('/users', userRouter)
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 router.use('/', authRouter)
 
-router.get('/feed', authenticateToken, isAdmin, (req, res) => {
-    res.send('working feed')
-})
+router.use('/users', userRouter)
+
+router.use('/profile/me', profileRouter)
 
 export default router

@@ -16,6 +16,20 @@ export const getUsers = async (
     }
 }
 
+export const getUserById = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+): Promise<any> => {
+    try {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const data = await UserService.findById(req.params.id)
+        res.send(data)
+    } catch (error) {
+        next(error)
+    }
+}
+
 export const deleteUser = async (
     req: Request,
     res: Response,

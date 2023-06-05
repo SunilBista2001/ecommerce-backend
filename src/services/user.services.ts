@@ -13,6 +13,18 @@ export const find = async () => {
     return users
 }
 
+export const findById = async (id: string) => {
+    try {
+        return await prisma.user.findFirst({
+            where: {
+                id: Number(id),
+            },
+        })
+    } catch (error: any) {
+        throw Boom.notFound('User not found')
+    }
+}
+
 export const remove = async (id: string) => {
     try {
         return await prisma.user.delete({
