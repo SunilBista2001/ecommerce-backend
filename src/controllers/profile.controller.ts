@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { NextFunction, Response } from 'express'
 import { RequestWithUserObject } from '../types'

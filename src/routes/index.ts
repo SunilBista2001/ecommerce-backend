@@ -11,6 +11,6 @@ router.use('/', authRouter)
 
 router.use('/users', userRouter)
 
-router.use('/profile/me', profileRouter)
+// router.use('/profile/me', profileRouter)
 
 export default router
